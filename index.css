@@ -1,0 +1,60 @@
+.arcticmonkeys {
+  position: relative;
+  width: 503px;
+  margin: auto;
+  padding: 40px;
+  display: none;
+}
+
+.btn-left {
+  position: absolute;
+  top: 48%;
+  left: 34%;
+  transform: translate(-53%, -53%);
+  background-image: url(./svg/left.png);
+  background-repeat: no-repeat;
+  width: 40px;
+  height: 40px;
+  border-radius: 20%;
+  outline: none;
+  border: none;
+  background-color: black;
+}
+
+.btn-left:hover {
+  background-color: white;
+}
+
+.btn-right {
+  position: absolute;
+  top: 48%;
+  right: 31%;
+  transform: translate(-53%, -53%);
+  background-image: url(./svg/right.png);
+  background-repeat: no-repeat;
+  width: 40px;
+  height: 40px;
+  border-radius: 20%;
+  outline: none;
+  border: none;
+  background-color: black;
+}
+
+.btn-right:hover {
+  background-color: white;
+}
+
+.point {
+  top: 50%;
+  left: 50%;
+  border-radius: 50%;
+  width: 15px;
+  height: 15px;
+  background-color: BlanchedAlmond;
+  display: inline-block;
+  text-align: center;
+}
+
+#main {
+  text-align: center;
+}
