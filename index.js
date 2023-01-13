@@ -1,3 +1,25 @@
+const images = [
+  "./img/photo1.jpg",
+  "./img/photo2.jpg",
+  "./img/photo3.jpg",
+  "./img/photo4.jpg",
+  "./img/photo5.jpg",
+  "./img/photo6.jpg",
+];
+
+const container = document.getElementById("imgContainer");
+
+function createImages() {
+  for (let i = 0; i < images.length; i++) {
+    const img = document.createElement("img");
+    img.className = "arcticmonkeys";
+
+    img.src = images[i];
+    container.appendChild(img);
+  }
+}
+createImages();
+
 const elems = document.getElementsByClassName("arcticmonkeys");
 
 const point = document.getElementsByClassName("point");
@@ -6,57 +28,59 @@ elems[0].style.display = "block";
 
 point[0].style.background = "Burlywood";
 
-const clickL = document.getElementById("clickL");
-const clickR = document.getElementById("clickR");
+function createButtons() {
+  const clickL = document.getElementById("clickL");
+  const clickR = document.getElementById("clickR");
 
-let index = 0;
+  let index = 0;
 
-function clickLeft() {}
+  function addChangeNone() {
+    elems[index].style.display = "none";
+    point[index].style.background = "BlanchedAlmond";
+  }
 
-function clickRight() {}
+  function addChangeBlock() {
+    elems[index].style.display = "block";
+    point[index].style.background = "Burlywood";
+  }
 
-clickL.addEventListener(
-  "click",
-  (clickLeft = () => {
-    if (index === 0) {
-      elems[index].style.display = "none";
-      point[index].style.background = "BlanchedAlmond";
+  clickL.addEventListener(
+    "click",
+    (clickLeft = () => {
+      if (!index) {
+        addChangeNone();
 
-      index = elems.length - 1;
+        index = elems.length - 1;
 
-      elems[index].style.display = "block";
-      point[index].style.background = "Burlywood";
-    } else {
-      elems[index].style.display = "none";
-      point[index].style.background = "BlanchedAlmond";
+        addChangeBlock();
+      } else {
+        addChangeNone();
 
-      index--;
+        index--;
 
-      elems[index].style.display = "block";
-      point[index].style.background = "Burlywood";
-    }
-  })
-);
+        addChangeBlock();
+      }
+    })
+  );
 
-clickR.addEventListener(
-  "click",
-  (clickRight = () => {
-    if (index >= elems.length - 1) {
-      elems[index].style.display = "none";
-      point[index].style.background = "BlanchedAlmond";
+  clickR.addEventListener(
+    "click",
+    (clickRight = () => {
+      if (index >= elems.length - 1) {
+        addChangeNone();
 
-      index = 0;
+        index = 0;
 
-      elems[index].style.display = "block";
-      point[index].style.background = "Burlywood";
-    } else {
-      elems[index].style.display = "none";
-      point[index].style.background = "BlanchedAlmond";
+        addChangeBlock();
+      } else {
+        addChangeNone();
 
-      index++;
+        index++;
 
-      elems[index].style.display = "block";
-      point[index].style.background = "Burlywood";
-    }
-  })
-);
+        addChangeBlock();
+      }
+    })
+  );
+}
+
+createButtons();
